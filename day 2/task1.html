@@ -16,8 +16,10 @@
         <input type="email" id="email"> <br> <br>
 
         Gender : <br>
-        <input type="radio" id="gender" name="gender"> <label for="gender">Male</label><br>
-        <input type="radio" id="female" name="gender"><label for="female">Female</label> <br> <br>
+        <input type="radio" id="male" name="gender" value="male"> 
+        <label for="male">Male</label><br>
+        <input type="radio" id="female" name="gender" value="female">
+        <label for="female">Female</label> <br> <br>
 
         <label for="city">City : </label> <br>
         <select name="city" id="city">
@@ -58,7 +60,8 @@
 
             const name = document.getElementById("name").value;
             const email = document.getElementById('email').value;
-            const gender = document.getElementById('gender').value;
+            <!-- const gender = document.getElementById('gender').value; -->
+            const gender = document.querySelector('input[name="gender"]:checked').value;
             const city = document.getElementById('city').value;
             const address = document.getElementById('address').value;
 
