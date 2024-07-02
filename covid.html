@@ -15,23 +15,22 @@
 
             document.write(myobject);
             for (i in myobject) {
-                document.write(i + "<br>");
+
+                <!-- document.write(myobject["cases_time_series"][0]["date"]); -->
+
+
+                document.write("<table border ='1'>");
+                for (var i = 1; i < myobject['statewise'].length; i++) {
+                    document.write("<tr> <td>" + (i) + "</td> <td>" + myobject['statewise'][i]['state'] + "</td> <td>" + myobject['statewise'][i]['confirmed'] + "</td>  <td>" + myobject['statewise'][i]['recovered'] + "</td>  <td>" + myobject['statewise'][i]['deaths'] + "</td></tr>");
+                }
+                document.write("</table>");
             }
-            document.write(myobject["statewise"][0]["state"]["confirmed"]["recovered"]["death"]);
+
+
+
         }
         covid();
     </script>
-
-    <table border="1" width="100%">
-        <tr>
-            <th>State Name</th>
-            <th>Confirmed Cases</th>
-            <th>Recovered Cases</th>
-            <th>Death Cases</th>
-        </tr>
-    </table>
-
-
 </body>
 
 </html>
