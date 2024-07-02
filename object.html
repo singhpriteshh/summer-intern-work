@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <script>
+
+        var myObject = {"gujarat" : "ahmedabad", "maharastra" : [{"date" : "27 june 2024", "cases" : 5}, {"date" : "29 june 2024", "cases" : 5}, {"date" : "30 june 2024", "cases" : 5}], "rajasthan" : [200,250,0]};
+        document.write(myObject["rajasthan"][1] + "<br>"); 
+        document.write(myObject["maharastra"][2]["date"] + "<br>");
+
+
+        var myObject = {"gujarat" : "ahmedabad", "maharastra" : "mumbai", "rajasthan" : "jaipur"}
+        for(var i in myObject){
+            document.write("state is "+ i + "city is" + myObject[i] + "<br>");
+        }
+
+        var cases = {"ahmedabad" : [1500,1600,2], "rajkot": [500,600,1], "surat" : [1200,1499,4]};
+
+        for(var i in cases){
+            document.write(i + "new cases" + cases[i][0] + "recoverd cases" + cases[i][1] + "deadth cases" + cases[i][2] + "<br>");
+        }
+
+    </script>
+
+    <table border="1" width="100%">
+        <tr>
+            <th>City Name</th>
+            <th>New Cases</th>
+            <th>Recovered Cases</th>
+            <th>Death Cases</th>
+        </tr>
+    
+
+    <script>
+        for(i in cases){
+            document.write("<tr><td>" + i + "</td><td>" + cases[i][0] + "</td><td>" + cases[i][1] + "</td><td>" + cases[i][2]);
+        }
+    </script>
+    </table>
+</body>
+</html>

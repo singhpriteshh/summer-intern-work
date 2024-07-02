@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Covid Cases</title>
+</head>
+
+<body>
+    <script>
+        async function covid() {
+            let url = "https://data.covid19india.org/data.json";
+            let myobject = await (await fetch(url)).json();
+
+            document.write(myobject);
+            for (i in myobject) {
+                document.write(i + "<br>");
+            }
+            document.write(myobject["statewise"][0]["state"]["confirmed"]["recovered"]["death"]);
+        }
+        covid();
+    </script>
+
+    <table border="1" width="100%">
+        <tr>
+            <th>State Name</th>
+            <th>Confirmed Cases</th>
+            <th>Recovered Cases</th>
+            <th>Death Cases</th>
+        </tr>
+    </table>
+
+
+</body>
+
+</html>
