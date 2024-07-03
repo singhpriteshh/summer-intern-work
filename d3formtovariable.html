@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function check(form){
+            var name = form.uname.value;
+            var surname = form.surname.value;
+            <!-- document.getElementById("msg").innerHTML = name + surname; -->
+            document.getElementById("msg").innerHTML = "<table border='1'><tr><th>Field</th></tr><tr><th>Data</th></tr></table>";
+        }
+    </script>
+
+    <form action="">
+        Name: <input type="text" placeholder="enter name" name="uname"> <br>
+        Surnmae: <input type="text" placeholder="enter surname" name="surname"> <br>
+        <input type="submit" onclick="check(this.form); return false">
+    </form>
+
+    <p id="msg"></p>
+
+</body>
+</html>
