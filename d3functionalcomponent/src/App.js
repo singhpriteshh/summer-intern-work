@@ -19,5 +19,13 @@ function Second(){
   );
 }
 
+function Third(){
+  return(
+    <div>
+      <h1>hehehehahahahaheheheahahah</h1>
+    </div>
+  );
+}
+
 export default App;
-export {First,Second};
+export {First,Second,Third};

@@ -1,16 +1,26 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import App,{First,Second,Third} from './App';
+import App, { Second } from './App';
+import Bdgmain,{Btnbadge,Pillsuccessbadge,Passbadge,Failbadge} from './Navbar';
+import Mainmodal,{Fullscreenmodal,Largemodal} from './Modalspage';
 import reportWebVitals from './reportWebVitals';
+import Resulttble from './Table';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <App />
-    <First />
-    <Second />
-    <Third/>
+    <Second/>
+    <Bdgmain/>
+    <Btnbadge/>
+    <Pillsuccessbadge />
+    <Passbadge/>
+    <Failbadge/>
+    <Resulttble/>
+    <Mainmodal/>
+    <Fullscreenmodal/>
+    <Largemodal/>
   </React.StrictMode>
 );
 
