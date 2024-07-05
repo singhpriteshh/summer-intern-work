@@ -28,7 +28,7 @@ const mystyle = {
 
 function Second(){
   return(
-    <div>
+    <div class="box">
       {/* block style */}
       <i style={mystyle}>hello world how are you doing</i>
       <h3>this is heading three</h3>
