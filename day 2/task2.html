@@ -18,8 +18,9 @@
                         document.getElementById("msg").innerHTML = "<table border='1'><tr><th>New Cases</th><td>"+obj["cases_time_series"][i]["dailyconfirmed"]+"</td></tr><tr><th>New Death</th><td>"+obj["cases_time_series"][i]["dailydeceased"]+"</td></tr></table>";
                         break;
                     }
-                    
-                    
+                    else{
+                        document.getElementById("msg").innerHTML = "data not found";
+                    }
                 }
                 
             }
