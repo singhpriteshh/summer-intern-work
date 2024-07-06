@@ -1,110 +1,37 @@
-<!-- <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>covid data search</title>
-</head>
-<body>
-    <form action="#" id="formdata">
-        <label for="date">Date</label>
-        <input type="text">
-        <button type="submit">Submit</button>
-    </form>
-
-    <script>
-        async function data() {
-            let url = "https://data.covid19india.org/data.json";
-            let coviddata = await (await fetch(url)).json();
-
-            document.write(coviddata);
-            for(i in coiddata){
-                document.write(coviddata["cases_time_series"][0]["date"]);
-            }
-        }
-    </script>
-</body>
-</html> -->
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>COVID-19 Data</title>
+    <title>Document</title>
 </head>
 <body>
-    <h2>Enter Date to Check COVID-19 Data</h2>
-    <form id="dateForm">
-        <label for="date">Date :</label>
-        <input type="date" id="date" name="date" required>
-        <br>
-        <button type="submit">Submit</button>
-    </form>
-
-    <h2>COVID-19 Data</h2>
-    <table border="1" id="dataTable">
-        <thead>
-            <tr>
-                <th>Date</th>
-                <th>New Cases</th>
-                <th>New Deaths</th>
-            </tr>
-        </thead>
-        <tbody>
-            <!-- Data will be inserted here dynamically -->
-        </tbody>
-    </table>
-
     <script>
-        async function fetchCovidData() {
-            let url = "https://data.covid19india.org/data.json";
-            let response = await fetch(url);
-            let data = await response.json();
-            return data.cases_time_series;
-        }
-
-        document.getElementById('dateForm').addEventListener('submit', async function(event) {
-            event.preventDefault(); // Prevent form submission
-
-            // Get the entered date
-            const date = document.getElementById('date').value;
-
-            // Fetch COVID-19 data
-            const covidData = await fetchCovidData();
-
-            // Find data for the entered date
-            const dateData = covidData.find(entry => entry.dateymd === date);
-
-            // Get table body element
-            const tableBody = document.getElementById('dataTable').getElementsByTagName('tbody')[0];
-
-            // Clear existing table data
-            tableBody.innerHTML = '';
-
-            // Check if data exists for the entered date
-            if (dateData) {
-                // Create a new row and cells
-                const newRow = tableBody.insertRow();
-                const dateCell = newRow.insertCell(0);
-                const newCasesCell = newRow.insertCell(1);
-                const newDeathsCell = newRow.insertCell(2);
-
-                // Append data to cells
-                dateCell.innerHTML = dateData.dateymd;
-                newCasesCell.innerHTML = dateData.dailyconfirmed;
-                newDeathsCell.innerHTML = dateData.dailydeceased;
-            } else {
-                // Display a message if no data is found for the entered date
-                const newRow = tableBody.insertRow();
-                const messageCell = newRow.insertCell(0);
-                messageCell.colSpan = 3;
-                messageCell.innerHTML = "No data available for the entered date.";
+        function check(form){
+            var udate = form.dt.value;
+            async function load(){
+                let url = "https://data.covid19india.org/data.json";
+                let obj = await(await fetch(url)).json();
+                for(var i = 0; i < obj["cases_time_series"].length; i++){
+                    
+                    if(udate == obj["cases_time_series"][i]["date"]){
+                        document.getElementById("msg").innerHTML = "<table border='1'><tr><th>New Cases</th><td>"+obj["cases_time_series"][i]["dailyconfirmed"]+"</td></tr><tr><th>New Death</th><td>"+obj["cases_time_series"][i]["dailydeceased"]+"</td></tr></table>";
+                        break;
+                    }
+                    
+                    
+                }
+                
             }
-
-            // Reset form
-            document.getElementById('dateForm').reset();
-        });
+            load();
+        }
+        
     </script>
+
+    <form>
+        Date : <input type="text" name="dt"> 
+        <input type="Submit" onclick="check(this.form); return false;">
+    </form>
+    <p id="msg"></p>
 </body>
 </html>
