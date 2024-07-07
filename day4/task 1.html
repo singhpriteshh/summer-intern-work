@@ -16,7 +16,7 @@
                 let obj = await (await fetch(url)).json();
 
                 for (var i = 0; i < obj.length; i++) {
-                    document.getElementById('msg').innerHTML = "<table border='1'><tr><td>"+(i+1)+"</td><td>"+obj[i]["name"]+"</td></tr></table > ";
+                    document.getElementById('msg').innerHTML = "<table border='1'><tr><td>"+(i+1)+"</td><td>"+obj[i]["name"]+"</td><td>"+obj[i]["state-province"]+"</td></tr></table > ";
                 }
             }
             load();
