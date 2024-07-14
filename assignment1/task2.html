@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>news</title>
+</head>
+<body>
+    <script>
+        async function load(){
+            let url = "https://inshortsapi.vercel.app/news?category=sports";
+            let obj = await(await(url)).json();
+
+
+            for(var i =0; i< obj.length; i++){
+                document.getElementById("msg").innerHTML = obj[i];
+            }
+           
+        }
+        load();
+    </script>
+
+    <p id="msg"></p>
+</body>
+</html>
