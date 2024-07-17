@@ -12,7 +12,7 @@
             let url ="https://api.coindesk.com/v1/bpi/currentprice.json";
             let myobject = await(await fetch(url)).json();
 
-            document.write(myobject + "<br>");
+            <!-- document.write(myobject + "<br>"); -->
             for(i in myobject){
                 document.write(i + "<br>");
             }
