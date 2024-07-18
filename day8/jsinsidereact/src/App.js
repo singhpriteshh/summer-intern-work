@@ -14,9 +14,9 @@ function App() {
 
 
 function First(){
-  var name = 'singh';
+  var name = 'Bhavsar';
   return(
-    <h1>Pritesh {name} </h1>
+    <h1>Harsh {name} </h1>
   );
 }
 
